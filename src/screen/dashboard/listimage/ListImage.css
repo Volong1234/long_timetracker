@@ -1,0 +1,16 @@
+.image-item {
+    width: 300px;
+    height: 300px;
+    object-fit: cover; /* Đảm bảo ảnh vẫn giữ tỉ lệ và lấp đầy khung hình */
+    border-radius: 2%
+  }
+  
+  .image-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .image-item {
+    margin-right: 10px; /* Khoảng cách giữa các ảnh */
+    margin-bottom: 10px; /* Khoảng cách giữa các dòng ảnh */
+  }

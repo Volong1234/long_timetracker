@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
+import DashBoard from './screen/dashboard/DashBoard';
+import LoginForm from './screen/login/LoginFrom';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/dashboard" element={<DashBoard />} />
+        {/* <Route path="/billing" element={<Billing />} />
+                <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+                <Route path="/manage" element={<Manage />} /> */}
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 

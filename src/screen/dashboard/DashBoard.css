@@ -1,0 +1,22 @@
+app {
+    font-family: Arial, sans-serif;
+  }
+  
+  .content {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .content-left {
+    flex: 1; /* Tỉ lệ 1 phần */
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .content-right {
+    flex: 3; /* Tỉ lệ 3 phần */
+    background-color: #e0e0e0;
+    padding: 20px;
+  }
