@@ -16,6 +16,14 @@ const Navbar = () => {
           <Link to="/contact" className="nav-link">Contact</Link>
         </li>
       </ul>
+      <div className="avatar-container">
+        <div>
+          <img src="https://hoanghamobile.com/tin-tuc/wp-content/webp-express/webp-images/uploads/2023/07/hinh-dep.jpg.webp" alt="Admin Avatar" className="admin-avatar" />
+        </div>
+        <div>
+          <span className="admin-name">Admin</span>
+        </div>
+      </div>
     </nav>
   );
 };

@@ -1,4 +1,4 @@
-.navbar {
+/* .navbar {
     background-color: #333;
     padding: 1rem;
   }
@@ -21,4 +21,45 @@
   .nav-link:hover {
     text-decoration: underline;
   }
+   */
+   .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+  }
   
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 1rem;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .avatar-container {
+    display: flex;
+    flex-direction: column; /* Hiển thị các phần tử con theo hướng dọc */
+    align-items: center;
+  }
+  
+  .admin-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem; /* Khoảng cách giữa ảnh và tên "Admin" */
+  }
+  
+  .admin-name {
+    font-weight: bold;
+    color: #fff;
+  }
