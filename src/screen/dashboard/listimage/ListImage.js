@@ -8,7 +8,7 @@ const RightColumn = ({ imageUrls, handleRemoveImage, id }) => {
 
   const [images, setImages] = useState([])
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedDate, setSelectedDate] = useState(new Date());
   useEffect(() => {
     const resizeHandler = () => {
       const imageList = document.querySelector('.image-list');
@@ -26,15 +26,13 @@ const RightColumn = ({ imageUrls, handleRemoveImage, id }) => {
 
   useEffect(() => {
     const fetchUserData = async () => {
-      // handleDateChange(selectedDate);
-      const selectedDate = new Date(); // Đây là ngày bạn muốn định dạng
-      const year = selectedDate.getFullYear(); // Lấy năm
-      const month = String(selectedDate.getMonth() + 1).padStart(2, '0'); // Lấy tháng, cộng thêm 1 vì tháng trong JavaScript bắt đầu từ 0
-      const day = String(selectedDate.getDate()).padStart(2, '0'); // Lấy ngày
-      const formattedDate = `${year}-${day}-${month}`;
+      const year = selectedDate.getFullYear(); 
+      const month = String(selectedDate.getMonth() + 1).padStart(2, '0'); 
+      const day = String(selectedDate.getDate()).padStart(2, '0'); 
+      const dateNew = `${year}-${month}-${day}`;
       setIsLoading(true);
       try {
-        const response = await fetch(`http://localhost:5003/getImageOneUser/${id || ''}?date=${formattedDate}`);
+        const response = await fetch(`http://localhost:5003/getImageOneUser/${id || ''}?date=${dateNew}`);
         console.log(response.url)
         if (!response.ok) {
           throw new Error('Failed to fetch data');
@@ -47,31 +45,15 @@ const RightColumn = ({ imageUrls, handleRemoveImage, id }) => {
       }
     };
     fetchUserData();
-  }, [id]);
+  }, [id, selectedDate]);
 
  
   const handleDateChange = async (selectedDate) => {
     setSelectedDate(selectedDate);
     setIsLoading(true);
-
-    try {
-      const year = selectedDate.getFullYear(); // Lấy năm
-      const month = String(selectedDate.getMonth() + 1).padStart(2, '0'); // Lấy tháng, cộng thêm 1 vì tháng trong JavaScript bắt đầu từ 0
-      const day = String(selectedDate.getDate()).padStart(2, '0'); // Lấy ngày
-      const formattedDate = `${year}-${day}-${month}`;
-      const response = await fetch(`http://localhost:5003/getImageOneUser/${id}?date=${formattedDate}`);
-      console.log(response.url)
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const data = await response.json();
-      setImages(data.data);
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      setIsLoading(false); // Đặt isLoading thành false sau khi nhận được dữ liệu hoặc gặp lỗi
-    }
   };
+
+  
 
 
   return (
